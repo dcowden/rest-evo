@@ -1,0 +1,38 @@
+[
+  //a complex example that tests a condition and posts data after a test, in case it really matters that we don't post if its already there:
+  //i'd probably only implement this if it is really needed
+  {
+    "name": "createFields",
+
+    //if a test exists, it will determine if the actions run or not. no test ( as above ) means always run the actions
+    "test": {
+      "url": "http://label-svc.colinxdev.com/v1/label-svc/fields/userName",
+      "method": "GET",										//GET is the default method
+
+      //typically only one of these is used
+      "match" :{
+        "responseCode": 200,                         		//matches a return code
+        "data": {									 		//matches data in the response
+          "fieldName" : "userName"
+        }
+      }
+    }
+    "actions":[
+      {
+        "uri": "http://label-svc.colinxdev.com/v1/label-svc/fields",
+        "method": "POST",
+        "data":{
+          "name": "userName",
+          "strategy": "logicalAnd"
+        }
+      },
+      {
+        "uri": "http://label-svc.colinxdev.com/v1/label-svc/fields",
+        "data":{
+          "name": "customerNumber",
+          "strategy": "logicalAnd"
+        }
+      }
+    ]
+  }
+]

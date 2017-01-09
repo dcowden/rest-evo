@@ -1,0 +1,31 @@
+{
+  "writeUrl": "https://label-svc.colinxdev.com/v1/label-svc/strategies",
+  "name": "test1",
+  "strategy": "merge",
+  "EXTRA_PROPERTY_NAME": "EXTRA_PROPERTY_VALUE",
+  "data":{
+    "name": "myStrategy",
+    "defaults": {
+      "field1": true,
+      "field2": "blah"
+    }
+  }
+}
+
+{
+  "writeUrl": "https://label-svc.colinxdev.com/v1/label-svc/strategies2",
+  "name":"test2",
+  "data":{
+    "name": "myStrategy",
+    "defaults": {
+      "field1": true,
+      "field2": "blah",
+      "moreDataList": [
+        {
+          "item1": 1,
+          "item2": 2
+        }
+      ]
+    }
+  }
+}
